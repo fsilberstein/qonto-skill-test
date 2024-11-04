@@ -1,0 +1,25 @@
+[tool.black]
+line-length = 119
+
+[tool.poetry]
+name = "kafka_to_dwh"
+version = "1.0.0"
+description = "Pipeline to ingest kafka events to a data warehouse."
+authors = ["Fabien Silberstein <fabien@silberstein.one>"]
+readme = "README.md"
+packages = [{ include = "app" }]
+
+[tool.poetry.dependencies]
+python = "~3.12"
+pydantic = "^2.9.2"
+psycopg2-binary = "^2.9.10"
+
+[tool.poetry.group.dev.dependencies]
+# packages needed for test, local debug or beam pipelines only
+black = "^24.10.0"
+ruff = "^0.7.2"
+apache-beam = {extras = ["test"], version = "==2.60.0"}
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
